@@ -78,11 +78,22 @@ burger.addEventListener('click', function () {
     scrollTo();
 }());
 
+// Navigation
 const topNavListLink = document.querySelectorAll(".top-nav__list-link");
 
-for (let i = 0; i < topNavListLink.length; i++) {
-    topNavListLink[i].onclick = function () {
-        topNavListLink[i].classList.toggle('active')
-    };
+const removeItem = () => {
+    topNavListLink.forEach(item => item.classList.remove('active'))
 }
 
+topNavListLink.forEach((item) => {
+    item.addEventListener('click', () => {
+        removeItem()
+        item.classList.add('active')
+    })
+})
+
+
+// Slider
+new Swiper('.gallery-content', {
+
+})
